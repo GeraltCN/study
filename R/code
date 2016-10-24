@@ -1,0 +1,28 @@
+#请在R环境下依次输入以下代码
+
+file = read.csv("~/Desktop/yfc.csv") #请填入表格的绝对路径，将excel转化为csv格式
+data = file[33:51]
+dist.e=dist(data,method='euclidean')
+
+heatmap(as.matrix(dist.e),labRow = F, labCol = F)
+#将得到矩阵绘制热图，得出大致分类数量
+
+model1=hclust(dist.e,method='ward.D')
+result=cutree(model1,k=4)    # 4为你判断的区块数量
+
+mds=cmdscale(dist.e,k=3,eig=T) #降维
+
+x = mds$points[,1]
+y = mds$points[,2]
+z = mds$points[,3]
+
+#如果你的环境没有安装ggplot2，请依次执行以下2行被注释的代码
+#install.packages("ggplot2")  
+#require(ggplot2)
+library(ggplot2)
+
+p=ggplot(data.frame(x,y,z),aes(x,y,z))
+p+geom_point(size=3,alpha=0.8,
+             aes(colour=factor(result),
+                 shape=factor(result)))
+#至此生成聚类图

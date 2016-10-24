@@ -1,0 +1,117 @@
+
+* # 使用 ？func 来获取帮助
+
+* 浏览数据集（目录？）
+data() # 查看内建数据集
+data(rivers) # 查看北美河流的长度
+* 查看工作空间
+ls()
+* 查看数据集
+head(rivers, 2)  查看rivers的前两行
+tail(rivers, 3)  查看tail的后三行
+* 查看数据集长度
+length()
+* 查看数据简明信息
+summary(rivers)
+* 以精液图显示数据
+stem(rivers)
+* 直方图
+hist(rivers, col="#333333", border="white", breaks=25)
+#  给 river 做统计频数直方图，包含了这些参数：数据源，颜色，边框，空格
+* 折线图
+plot(discoveries, col="#333333", lwd=3, xlab="Year", main="Number of important discoveries per year")
+# 参数为（数据源，颜色，线条宽度，X 轴名称，标题）
+* 排序
+sort(discoveries)
+* 最大值
+max(discoveries)
+* 随机数
+round(runif(7, min =.5, max=6.5)
+# runif 产生随机数，round 四舍五入
+* 标准高斯函数
+rnorm(9)
+* calculate
++
+-
+*
+/
+%%   取余
+* 判断类型
+class() # 填入value
+* 列表  [Important]
+c(,)
+访问方式[]
+
+vec <- c(1,3,5,6,7)
+which(vec %% 2 == 0) # 返回所有偶数
+mean(c(,)) 求平均值
+var(c(,)) 方差？ 
+sum(c(,)) 总和
+* 切片（列表生成）
+:
+seq(start, end, by=?)
+* Built-in Seq.
+letters
+LETTERS
+month
+......
+* 特殊值类型
+NaN
+Inf
+-Inf
+NA
+NULL
+* 字符串操作
+substrsubstr("Fortuna multis dat nimis, nulli satis.", 9, 15)
+# 取字符串的第9个到第15个，从1开始
+* 因子
+levels(factor(c("female", "male", "male", "female", "NA", "female")))
+列出因子
+factor(c("female", "female", "male", "NA", "female"))
+变成因子
+* 赋值
+x = 5
+y <- "1"
+TRUE -> z
+* 强制转换
+as.numeric(y)
+as.character(x)
+* 控制流
+** for
+for (i in 1:4) {
+     print(i)
+}
+** while
+a <- 10
+while (a > 4) {
+cat(a, "...", seq = "")
+a < -a -1
+}
+** if
+if (4>3) {
+print("Four is bigger than three."
+}else{
+print("Ehhhhhh. What's wrong with it.")
+}
+* funciton
+jiggle <- funciton(x) {
+x + rnorm(x, sd=.1)
+return(x)
+}
+* 矩阵
+** matrix
+matrix(nrow = 3, ncol = 2, c(1,2,3,4,5,6))
+nrow为行
+ncol为列 
+最后一个参数即原始数据
+t(matrix) 生成转置矩阵
+mat2 <- cbind(1:4, c("dog", "cat", "bird", "dog"))
+** data frame
+dat <- data.frame(c(5,2,1,4),c("dog","cat","bird","dog"))
+将两个不同类型数据的列表合在一起
+names(dat) <- c("number", "species")
+** array
+array(c(c(1,2,4,5),c(8,9,3,6)), dim=c(2,4)) #二维
+dim 尺寸 2行4列
+# 三维
+array(c(c(c(2,300,4),c(8,9,0)),c(c(5,60,0),c(66,7,847))), dim=c(3,2,2))
